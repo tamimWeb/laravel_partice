@@ -26,17 +26,22 @@ class CategoryController extends Controller
     //store//
 
     public function store(Request $request){
+        $request->validate([
+            'category_name' => 'required',
+            'category_description' => 'required'
+
+        ]);
         $product = new Category();
         $product->category_name = $request-> category_name;
         $product-> category_description = $request -> category_description;
         $product -> save();
-        return redirect()->route('list.category');
+        return redirect()->back()->with('success','Successfully Add Category');
     }
 
     // delete //
     // another syestem//
 
-    
+
     // public function delete($id){
     //    Category::where('id','=', $id)->delete();
     //     return redirect()->back()->with('success','Supplier Delete successful');

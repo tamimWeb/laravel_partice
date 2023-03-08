@@ -1,9 +1,13 @@
 @extends('admin.master')
 @section('contain')
 
+
 <div class="card mb-4">
     <div class="card-header">
-        Category List
+        <h2>Category List</h2>
+        <div style="margin-right: 10%; float: right; margin-bottom:5px;">
+            <a class="btn btn-primary" href="{{url('create/category')}}">Add Category</a>
+        </div>
     </div>
     <div class="card-body">
         <table id="datatablesSimple">
