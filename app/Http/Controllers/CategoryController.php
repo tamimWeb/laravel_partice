@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -38,6 +39,38 @@ class CategoryController extends Controller
         return redirect()->back()->with('success','Successfully Add Category');
     }
 
+
+    public function show($id){
+        $product = Category::find($id);
+        return view('admin.Category.show_category',compact('product'));
+
+
+    }
+
+    // edit //
+
+    public function edit($id){
+        $product = Category::where('id','=', $id)->first();
+        return view('admin.Category.edit_category',compact('product'));
+
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'category_name' => 'required','max|1400',
+            'category_description' => 'required','max|1400'
+
+        ]);
+        $product = Category::find($id);
+        $product->category_name = $request-> category_name;
+        $product-> category_description = $request -> category_description;
+        $product -> save();
+        return redirect()->route('list.category')->with('success','Successfully Update');
+
+
+    }
+
+
     // delete //
     // another syestem//
 
@@ -50,7 +83,7 @@ class CategoryController extends Controller
     public function delete($id){
         $product = Category::find($id);
         $product->delete();
-        return redirect()->back()->with('success','Supplier Delete successful');
+        return redirect()->back()->with('success','Category Delete successfully');
 
     }
 
