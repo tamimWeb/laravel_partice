@@ -39,7 +39,7 @@
             {{-- submit and back Button --}}
 
             <button type="submit" class="btn btn-info">Submit</button>
-            <a href="{{url('list/category')}}" class="btn btn-danger">Back</a>
+            <a href="{{url('index/category')}}" class="btn btn-danger">Back</a>
         </form>
 
     </div>

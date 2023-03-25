@@ -65,7 +65,7 @@ class CategoryController extends Controller
         $product->category_name = $request-> category_name;
         $product-> category_description = $request -> category_description;
         $product -> save();
-        return redirect()->route('list.category')->with('success','Successfully Update');
+        return redirect()->route('index.category')->with('success','Successfully Update');
 
 
     }
@@ -77,7 +77,7 @@ class CategoryController extends Controller
 
     // public function delete($id){
     //    Category::where('id','=', $id)->delete();
-    //     return redirect()->back()->with('success','Supplier Delete successful');
+    //     return redirect()->back()->with('success','Category Delete successfully');
     // }
 
     public function delete($id){

@@ -7,7 +7,7 @@
         <p class="card-text">Category Description : {{$product->category_description}}</p>
     </div>
      <div class="ms-3 mb-3">
-        <a href="{{url('list/category')}}" class="btn btn-danger">Back</a>
+        <a href="{{url('index/category')}}" class="btn btn-danger">Back</a>
 
      </div>
 
